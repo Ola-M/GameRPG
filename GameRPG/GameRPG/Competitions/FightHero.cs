@@ -23,7 +23,7 @@ namespace GameRPG
             return fighter;
         }
 
-        public void Attac(Champion heroAttacked, Champion attackingHero)
+        public void Attack(Champion heroAttacked, Champion attackingHero)
         {
             if(specialAbility.ChanceOfSpecialAttac()== true)
             {
@@ -34,8 +34,6 @@ namespace GameRPG
                 heroAttacked.currentHp -= attackingHero.strength;
                 Log.Info(attackingHero.race + " " + attackingHero._name + " zadał cios");
             }
-            
-            
         }
 
         public void Fight(List<Champion> hero)
@@ -50,21 +48,21 @@ namespace GameRPG
                 {
                     if (specialAbility.Miss(fighter1.miss) == false) 
                     {
-                        Attac(fighter1, fighter2);                        
+                        Attack(fighter1, fighter2);                        
                     }
-                    else { Log.Info(fighter1.race + " " + fighter1._name + "wykonał unik"); }
+                    else { Log.Info(fighter1.race + " " + fighter1._name + " wykonał unik"); }
 
                     if (fighter1.currentHp <= 0)
                     {
                         Log.Info(fighter2.race + " " + fighter2._name + " Wygrał Pojedynek \n");
                         fighter2.MaxHp();
                         hero.RemoveAt(fighters[0]);
-
+                        break;
                     }
 
                     if (specialAbility.Miss(fighter2.miss) == false)
                     {
-                        Attac(fighter2, fighter1);                        
+                        Attack(fighter2, fighter1);                        
                     }
                     else { Log.Info(fighter2.race + " " + fighter2._name + " wykonał unik"); }
 
@@ -73,14 +71,10 @@ namespace GameRPG
                         Log.Info(fighter1.race + " " + fighter1._name + " Wygrał Pojedynek \n");
                         fighter1.MaxHp();
                         hero.RemoveAt(fighters[1]);
+                        break;
                     }
-
-                }
-                
-                
+                }                       
             }
         }
-
-
     }
 }

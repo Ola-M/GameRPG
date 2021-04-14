@@ -26,7 +26,7 @@ namespace GameRPG
             Random random = new Random();
             var specialAttac = attackingHero.Skill();            
             var index = random.Next(specialAttac.Count);
-            heroAttacked.Hp -= specialAttac[index].PointsAttack;
+            heroAttacked.currentHp -= specialAttac[index].PointsAttack;
             Log.Info(attackingHero.race + " " + attackingHero._name + " zadał cios " + specialAttac[index].Name);
         }
 
