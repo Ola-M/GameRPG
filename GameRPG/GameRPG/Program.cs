@@ -6,7 +6,9 @@ namespace GameRPG
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Tournament tournament = new Tournament();
+            tournament.TournamentCompetitions();
+            
         }
     }
 }

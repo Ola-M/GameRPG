@@ -8,24 +8,24 @@ namespace GameRPG.Characters
 {
     class Ogre : Champion
     {
-        public Ogre(int Hp,string race, int miss, int strenght)
+        public Ogre(string name) : base(name)
         {
             Hp = 300;
             race = GetType().Name;
             miss = 2;
-            strenght = 20;
-        }
-        public Ogre(string name) : base(name)
-        {
+            strength = 20;
             _name = name;
+            currentHp = Hp;
         }
 
-        public override List<Skill> SpecialAbility()
+
+
+        public override List<Skill> Skill()
         {
-            List<Skill> specialAbility = new List<Skill>();
-            specialAbility.Add(new Skill("Pierd", 25));
-            specialAbility.Add(new Skill("Cios maczugą", 30));
-            return specialAbility;
+            List<Skill> skill = new List<Skill>();
+            skill.Add(new Skill("Pierd", 25));
+            skill.Add(new Skill("Cios maczugą", 30));
+            return skill;
         }
     }
 }

@@ -27,5 +27,6 @@ namespace GameRPG.Characters
             get { return _pointsAttack; }
             set { _pointsAttack = value; }
         }
+
     }
 }

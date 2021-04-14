@@ -9,24 +9,23 @@ namespace GameRPG.Characters
     class Princess : Champion
     {
         
-        public Princess(int Hp, string race, int miss, int strenght)
+        public Princess(string name) : base(name)
         {
             Hp = 150;
             race = GetType().Name;
             miss = 20;
-            strenght = 30; 
-        }
-        public Princess(string name) : base(name)
-        {
+            strength = 30;
             _name = name;
+            currentHp = Hp;
         }
 
-        public override List<Skill> SpecialAbility()
+
+        public override List<Skill> Skill()
         {
-            List<Skill> specialAbility = new List<Skill>();
-            specialAbility.Add(new Skill("Kopnięcie z półobrotu", 40));
-            specialAbility.Add(new Skill("Przerźliwy krzyk", 35));
-            return specialAbility;
+            List<Skill> skill = new List<Skill>();
+            skill.Add(new Skill("Kopnięcie z półobrotu", 40));
+            skill.Add(new Skill("Przerźliwy krzyk", 35));
+            return skill;
         }
     }
 }

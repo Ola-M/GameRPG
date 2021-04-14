@@ -8,24 +8,24 @@ namespace GameRPG.Characters
 {
     class Knight : Champion
     {
-        public Knight(int Hp, string race, int miss, int strenght)
+        public Knight( string name) : base(name)
         {
             Hp = 200;
             race = GetType().Name;
             miss = 5;
-            strenght = 35;
+            strength = 35;
+            _name = name;
+            currentHp = Hp;
 
         }
-        public Knight(string name) : base(name)
+
+
+        public override List<Skill> Skill()
         {
-            _name = name;
-        }
-        public override List<Skill> SpecialAbility()
-        {
-            List<Skill> specialAbility = new List<Skill>();
-            specialAbility.Add(new Skill("Cios Mieczem", 50));
-            specialAbility.Add(new Skill("Błędny ryczerz", 45));
-            return specialAbility;
+            List<Skill> skill = new List<Skill>();
+            skill.Add(new Skill("Cios Mieczem", 50));
+            skill.Add(new Skill("Błędny ryczerz", 45));
+            return skill;
         }
     }
 }

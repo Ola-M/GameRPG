@@ -8,25 +8,24 @@ namespace GameRPG.Characters
 {
     class Donkey : Champion
     {
-        public Donkey(int Hp, string race, int miss, int strenght)
+        public Donkey( string name) : base(name)
         {
             Hp = 80;
             race = GetType().Name;
             miss = 10;
-            strenght = 40;
-
-        }
-        public Donkey(string name) : base(name)
-        {
+            strength = 40;
             _name = name;
-        }
+            currentHp = Hp;
 
-        public override List<Skill> SpecialAbility()
+        }
+        
+
+        public override List<Skill> Skill()
         {
-            List<Skill> specialAbility = new List<Skill>();
-            specialAbility.Add(new Skill("Zatrute ugryzienie", 50));
-            specialAbility.Add(new Skill("Stanięcie Dęba ", 55));
-            return specialAbility;
+            List<Skill> skill = new List<Skill>();
+            skill.Add(new Skill("Zatrute ugryzienie", 50));
+            skill.Add(new Skill("Stanięcie Dęba ", 55));
+            return skill;
         }
     }
 }

@@ -1,0 +1,16 @@
+D:\GameRPG\GameRPG\GameRPG\bin\Debug\net5.0\GameRPG.exe
+D:\GameRPG\GameRPG\GameRPG\bin\Debug\net5.0\GameRPG.deps.json
+D:\GameRPG\GameRPG\GameRPG\bin\Debug\net5.0\GameRPG.runtimeconfig.json
+D:\GameRPG\GameRPG\GameRPG\bin\Debug\net5.0\GameRPG.runtimeconfig.dev.json
+D:\GameRPG\GameRPG\GameRPG\bin\Debug\net5.0\GameRPG.dll
+D:\GameRPG\GameRPG\GameRPG\bin\Debug\net5.0\ref\GameRPG.dll
+D:\GameRPG\GameRPG\GameRPG\bin\Debug\net5.0\GameRPG.pdb
+D:\GameRPG\GameRPG\GameRPG\obj\Debug\net5.0\GameRPG.csprojAssemblyReference.cache
+D:\GameRPG\GameRPG\GameRPG\obj\Debug\net5.0\GameRPG.GeneratedMSBuildEditorConfig.editorconfig
+D:\GameRPG\GameRPG\GameRPG\obj\Debug\net5.0\GameRPG.AssemblyInfoInputs.cache
+D:\GameRPG\GameRPG\GameRPG\obj\Debug\net5.0\GameRPG.AssemblyInfo.cs
+D:\GameRPG\GameRPG\GameRPG\obj\Debug\net5.0\GameRPG.csproj.CoreCompileInputs.cache
+D:\GameRPG\GameRPG\GameRPG\obj\Debug\net5.0\GameRPG.dll
+D:\GameRPG\GameRPG\GameRPG\obj\Debug\net5.0\ref\GameRPG.dll
+D:\GameRPG\GameRPG\GameRPG\obj\Debug\net5.0\GameRPG.pdb
+D:\GameRPG\GameRPG\GameRPG\obj\Debug\net5.0\GameRPG.genruntimeconfig.cache

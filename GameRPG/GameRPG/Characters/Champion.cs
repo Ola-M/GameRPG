@@ -9,28 +9,26 @@ namespace GameRPG.Characters
     abstract class Champion
     {
         
-        public int _Hp { get; set; }
+        public int Hp { get; set; }
+        public int currentHp { get; set; }
         public string _name { get; set; }
         public string race { get; set; }
-        public int _miss { get; set; }
-        public int _strength { get; set; }
+        public int miss { get; set; }
+        public int strength { get; set; }
 
-        public Champion()
-        {
-
-        }
-        public Champion(string name)
+        public Champion(string name )
         {
             _name = name;
+           
         }
+       
 
-        public static int CurrentHp(int Hp, int damage)
+        public  void MaxHp()
         {
-            Hp = Hp - damage;
-            return Hp;
+            currentHp = Hp;
         }
 
-        public abstract List<Skill> SpecialAbility();
+        public abstract List<Skill> Skill();
         
     }
 }
