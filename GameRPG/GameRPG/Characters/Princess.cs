@@ -20,11 +20,11 @@ namespace GameRPG.Characters
         }
 
 
-        public override List<Skill> Skill()
+        public override List<SpecialAbility> Skill()
         {
-            List<Skill> skill = new List<Skill>();
-            skill.Add(new Skill("Kopnięcie z półobrotu", 40));
-            skill.Add(new Skill("Przerźliwy krzyk", 35));
+            List<SpecialAbility> skill = new List<SpecialAbility>();
+            skill.Add(new SpecialAbility("Kopnięcie z półobrotu", 40));
+            skill.Add(new SpecialAbility("Przerźliwy krzyk", 35));
             return skill;
         }
     }

@@ -20,11 +20,11 @@ namespace GameRPG.Characters
 
 
 
-        public override List<Skill> Skill()
+        public override List<SpecialAbility> Skill()
         {
-            List<Skill> skill = new List<Skill>();
-            skill.Add(new Skill("Pierd", 25));
-            skill.Add(new Skill("Cios maczugą", 30));
+            List<SpecialAbility> skill = new List<SpecialAbility>();
+            skill.Add(new SpecialAbility("Pierd", 25));
+            skill.Add(new SpecialAbility("Cios maczugą", 30));
             return skill;
         }
     }

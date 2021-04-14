@@ -20,12 +20,12 @@ namespace GameRPG.Characters
         }
         
 
-        public override List<Skill> Skill()
+        public override List<SpecialAbility> Skill()
         {
-            List<Skill> skill = new List<Skill>();
-            skill.Add(new Skill("Zatrute ugryzienie", 50));
-            skill.Add(new Skill("Stanięcie Dęba ", 55));
-            return skill;
+            List<SpecialAbility> specialAbiliti = new List<SpecialAbility>();
+            specialAbiliti.Add(new SpecialAbility("Zatrute ugryzienie", 50));
+            specialAbiliti.Add(new SpecialAbility("Stanięcie Dęba ", 55));
+            return specialAbiliti;
         }
     }
 }

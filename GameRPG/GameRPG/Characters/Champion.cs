@@ -28,7 +28,7 @@ namespace GameRPG.Characters
             currentHp = Hp;
         }
 
-        public abstract List<Skill> Skill();
+        public abstract List<SpecialAbility> Skill();
         
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameRPG
 {
-     interface ISpecialAbility
+     interface ISpecialAbilityHelper
     {
       bool Miss(int miss);
     }

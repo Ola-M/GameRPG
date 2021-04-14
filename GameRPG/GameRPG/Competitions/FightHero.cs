@@ -9,7 +9,7 @@ namespace GameRPG
 {
     class FightHero
     {
-        SpecialAbility specialAbility = new SpecialAbility();
+        SpecialAbilityHelper specialAbility = new SpecialAbilityHelper();
         
         private int[] RandHero(List<Champion> hero)
         {
@@ -23,10 +23,19 @@ namespace GameRPG
             return fighter;
         }
 
-        public int Attac(int Hp, int damage)
+        public void Attac(Champion heroAttacked, Champion attackingHero)
         {
-            Hp = Hp - damage;
-            return Hp;
+            if(specialAbility.ChanceOfSpecialAttac()== true)
+            {
+                specialAbility.SpecialAttac(heroAttacked, attackingHero);
+            }
+            else
+            {
+                heroAttacked.currentHp -= attackingHero.strength;
+                Log.Info(attackingHero.race + " " + attackingHero._name + " zadał cios");
+            }
+            
+            
         }
 
         public void Fight(List<Champion> hero)
@@ -41,32 +50,34 @@ namespace GameRPG
                 {
                     if (specialAbility.Miss(fighter1.miss) == false) 
                     {
-                        fighter1.currentHp = Attac(fighter1.currentHp, fighter2.strength);
-                        Log.Info(fighter2.race + " " + fighter2._name + " zadał cios");
+                        Attac(fighter1, fighter2);                        
                     }
                     else { Log.Info(fighter1.race + " " + fighter1._name + "wykonał unik"); }
 
+                    if (fighter1.currentHp <= 0)
+                    {
+                        Log.Info(fighter2.race + " " + fighter2._name + " Wygrał Pojedynek \n");
+                        fighter2.MaxHp();
+                        hero.RemoveAt(fighters[0]);
+
+                    }
+
                     if (specialAbility.Miss(fighter2.miss) == false)
                     {
-                        fighter2.currentHp = Attac(fighter2.currentHp, fighter1.strength);
-                        Log.Info(fighter1.race + " " + fighter1._name + " zadał cios");
+                        Attac(fighter2, fighter1);                        
                     }
                     else { Log.Info(fighter2.race + " " + fighter2._name + " wykonał unik"); }
-                       
-                }
-                if (fighter1.Hp > 0)
-                {
-                    Log.Info(fighter1.race +" "+ fighter1._name + " Wygrał Pojedynek \n");
-                    fighter1.MaxHp();
-                    hero.RemoveAt(fighters[1]);
-                }
-                else
-                {
-                    Log.Info(fighter2.race + " " + fighter2._name + " Wygrał Pojedynek \n");
-                    fighter2.MaxHp();
-                    hero.RemoveAt(fighters[0]);
+
+                    if (fighter2.currentHp <= 0)
+                    {
+                        Log.Info(fighter1.race + " " + fighter1._name + " Wygrał Pojedynek \n");
+                        fighter1.MaxHp();
+                        hero.RemoveAt(fighters[1]);
+                    }
 
                 }
+                
+                
             }
         }
 

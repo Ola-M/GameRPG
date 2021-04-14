@@ -22,7 +22,7 @@ namespace GameRPG
             hero.Add(new Princess("Kopciuszek"));
 
             fightHero.Fight(hero);
-            Log.Info("\nZwycięzcą turnieju jest " + hero);
+            Log.Info("\nZwycięzcą turnieju jest " + hero[0]._name);
         }
 
      }
