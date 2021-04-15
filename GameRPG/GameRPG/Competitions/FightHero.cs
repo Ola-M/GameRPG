@@ -1,4 +1,5 @@
 ﻿using GameRPG.Characters;
+using GameRPG.Message;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,16 @@ namespace GameRPG
 {
     class FightHero
     {
-        SpecialAbilityHelper specialAbility = new SpecialAbilityHelper();
+        ISpecialAbilityHelper _specialAbility;
+        IConsoleLogService _consoleLogService;
+
+        public FightHero(ISpecialAbilityHelper specialAbility, IConsoleLogService consoleLogService)
+        {
+            _specialAbility = specialAbility;
+            _consoleLogService = consoleLogService;
+
+        }
+
         
         private int[] RandHero(List<Champion> hero)
         {
@@ -25,14 +35,14 @@ namespace GameRPG
 
         public void Attack(Champion heroAttacked, Champion attackingHero)
         {
-            if(specialAbility.ChanceOfSpecialAttac()== true)
+            if(_specialAbility.ChanceOfSpecialAttac()== true)
             {
-                specialAbility.SpecialAttac(heroAttacked, attackingHero);
+                _specialAbility.SpecialAttack(heroAttacked, attackingHero);
             }
             else
             {
-                heroAttacked.currentHp -= attackingHero.strength;
-                Log.Info(attackingHero.race + " " + attackingHero._name + " zadał cios");
+                heroAttacked.CurrentHp -= attackingHero.AttackStrength;
+                _consoleLogService.Attack(attackingHero.Race, attackingHero.Name);
             }
         }
 
@@ -44,31 +54,31 @@ namespace GameRPG
                 var fighter1 = hero[fighters[0]];
                 var fighter2 = hero[fighters[1]];
 
-                while ((fighter1.currentHp > 0) && (fighter2.currentHp > 0))
+                while ((fighter1.CurrentHp > 0) && (fighter2.CurrentHp > 0))
                 {
-                    if (specialAbility.Miss(fighter1.miss) == false) 
+                    if (_specialAbility.Miss(fighter1.ChanceToMiss) == false) 
                     {
                         Attack(fighter1, fighter2);                        
                     }
-                    else { Log.Info(fighter1.race + " " + fighter1._name + " wykonał unik"); }
+                    else { _consoleLogService.Miss(fighter1.Race, fighter1.Name); }
 
-                    if (fighter1.currentHp <= 0)
+                    if (fighter1.CurrentHp <= 0)
                     {
-                        Log.Info(fighter2.race + " " + fighter2._name + " Wygrał Pojedynek \n");
+                        _consoleLogService.FightWinner(fighter2.Race, fighter2.Name);
                         fighter2.MaxHp();
                         hero.RemoveAt(fighters[0]);
                         break;
                     }
 
-                    if (specialAbility.Miss(fighter2.miss) == false)
+                    if (_specialAbility.Miss(fighter2.ChanceToMiss) == false)
                     {
                         Attack(fighter2, fighter1);                        
                     }
-                    else { Log.Info(fighter2.race + " " + fighter2._name + " wykonał unik"); }
+                    else { _consoleLogService.Miss(fighter2.Race, fighter2.Name); }
 
-                    if (fighter2.currentHp <= 0)
+                    if (fighter2.CurrentHp <= 0)
                     {
-                        Log.Info(fighter1.race + " " + fighter1._name + " Wygrał Pojedynek \n");
+                        _consoleLogService.FightWinner(fighter1.Race, fighter1.Name);
                         fighter1.MaxHp();
                         hero.RemoveAt(fighters[1]);
                         break;

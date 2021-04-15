@@ -1,4 +1,5 @@
 ﻿using GameRPG.Characters;
+using GameRPG.Message;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,11 @@ namespace GameRPG
 {
     class SpecialAbilityHelper : ISpecialAbilityHelper
     {
-        SpecialAbility specialAbility = new SpecialAbility();
-        
+        IConsoleLogService _consoleLogService;
+        public SpecialAbilityHelper(IConsoleLogService consoleLogService)
+        {
+            _consoleLogService = consoleLogService;
+        }
        public bool Miss(int miss)
         {
             Random random = new Random();
@@ -21,13 +25,13 @@ namespace GameRPG
             }
             return false;
         }
-        public void SpecialAttac(Champion heroAttacked, Champion attackingHero)
+        public void SpecialAttack(Champion heroAttacked, Champion attackingHero)
         {
             Random random = new Random();
-            var specialAttac = attackingHero.Skill();            
-            var index = random.Next(specialAttac.Count);
-            heroAttacked.currentHp -= specialAttac[index].PointsAttack;
-            Log.Info(attackingHero.race + " " + attackingHero._name + " zadał cios " + specialAttac[index].Name);
+            var specialAttack = attackingHero.Skill();            
+            var index = random.Next(specialAttack.Count);
+            heroAttacked.CurrentHp -= specialAttack[index].PointsAttack;
+            _consoleLogService.SpecialAttack(attackingHero.Race, attackingHero.Name, specialAttack[index].Name);
         }
 
         public bool ChanceOfSpecialAttac()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameRPG.Characters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,7 @@ namespace GameRPG
      interface ISpecialAbilityHelper
     {
       bool Miss(int miss);
+        void SpecialAttack(Champion heroAttacked, Champion attackingHero);
+        bool ChanceOfSpecialAttac();
     }
 }

@@ -11,21 +11,19 @@ namespace GameRPG.Characters
         
         public Princess(string name) : base(name)
         {
-            Hp = 150;
-            race = GetType().Name;
-            miss = 20;
-            strength = 30;
-            _name = name;
-            currentHp = Hp;
+            StartingHp = 150;
+            Race = GetType().Name;
+            ChanceToMiss = 20;
+            AttackStrength = 30; 
+            CurrentHp = StartingHp;
+            SpecialAbilitiesList = new List<SpecialAbility>();
         }
-
 
         public override List<SpecialAbility> Skill()
         {
-            List<SpecialAbility> skill = new List<SpecialAbility>();
-            skill.Add(new SpecialAbility("Kopnięcie z półobrotu", 40));
-            skill.Add(new SpecialAbility("Przerźliwy krzyk", 35));
-            return skill;
+            SpecialAbilitiesList.Add(new SpecialAbility("Kopnięcie z półobrotu", 40));
+            SpecialAbilitiesList.Add(new SpecialAbility("Przerźliwy krzyk", 35));
+            return SpecialAbilitiesList;
         }
     }
 }

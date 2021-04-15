@@ -1,4 +1,5 @@
 ﻿using GameRPG.Characters;
+using GameRPG.Message;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,21 +10,29 @@ namespace GameRPG
 {
     class Tournament
     {
-        private FightHero fightHero = new FightHero();
-        
+        IConsoleLogService _consoleLogService;
+        private FightHero _fightHero ;
+        public Tournament(FightHero fightHero, IConsoleLogService consoleLogService)
+        {
+            _fightHero = fightHero;
+            _consoleLogService = consoleLogService;
+        }
+       
         public void TournamentCompetitions()
         {
             List<Champion> hero = new List<Champion>();
-            hero.Add(new Ogre("Shreck"));
+            hero.Add(new Ogre("Shrek"));
             hero.Add(new Princess("Fiona"));
             hero.Add(new Knight("Książe z bajki"));
             hero.Add(new Donkey("Osioł"));
             hero.Add(new Knight("Lord Farqaad"));
             hero.Add(new Princess("Kopciuszek"));
 
-            fightHero.Fight(hero);
-            Log.Info("\nZwycięzcą turnieju jest " + hero[0]._name);
+            _fightHero.Fight(hero);
+            _consoleLogService.TournamentWinner(hero[0].Race, hero[0].Name);
+            
         }
+        
 
      }
 }

@@ -10,22 +10,20 @@ namespace GameRPG.Characters
     {
         public Ogre(string name) : base(name)
         {
-            Hp = 300;
-            race = GetType().Name;
-            miss = 2;
-            strength = 20;
-            _name = name;
-            currentHp = Hp;
+            StartingHp = 300;
+            Race = GetType().Name;
+            ChanceToMiss = 2;
+            AttackStrength = 20;
+            CurrentHp = StartingHp;
+            SpecialAbilitiesList = new List<SpecialAbility>();
+
         }
-
-
-
         public override List<SpecialAbility> Skill()
         {
-            List<SpecialAbility> skill = new List<SpecialAbility>();
-            skill.Add(new SpecialAbility("Pierd", 25));
-            skill.Add(new SpecialAbility("Cios maczugą", 30));
-            return skill;
+            SpecialAbilitiesList.Add(new SpecialAbility("Pierd", 25));
+            SpecialAbilitiesList.Add(new SpecialAbility("Cios maczugą", 30));
+            return SpecialAbilitiesList;
         }
+
     }
 }
