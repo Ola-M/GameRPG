@@ -35,7 +35,7 @@ namespace GameRPG
 
         public void Attack(Champion heroAttacked, Champion attackingHero)
         {
-            if(_specialAbility.ChanceOfSpecialAttac()== true)
+            if(_specialAbility.ChanceOfSpecialAttac())
             {
                 _specialAbility.SpecialAttack(heroAttacked, attackingHero);
             }
@@ -56,7 +56,7 @@ namespace GameRPG
 
                 while ((fighter1.CurrentHp > 0) && (fighter2.CurrentHp > 0))
                 {
-                    if (_specialAbility.Miss(fighter1.ChanceToMiss) == false) 
+                    if (!_specialAbility.Miss(fighter1.ChanceToMiss)) 
                     {
                         Attack(fighter1, fighter2);                        
                     }
@@ -70,7 +70,7 @@ namespace GameRPG
                         break;
                     }
 
-                    if (_specialAbility.Miss(fighter2.ChanceToMiss) == false)
+                    if (!_specialAbility.Miss(fighter2.ChanceToMiss))
                     {
                         Attack(fighter2, fighter1);                        
                     }
